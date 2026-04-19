@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentisLab -- Website Redesign Proposals</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --blue: #0284C7;
+  --blue-dark: #0369A1;
+  --blue-light: #E0F2FE;
+  --off: #F5F5F3;
+  --stone: #E8E7E3;
+  --muted: #8A8780;
+  --body: #4A4A48;
+  --font: 'Manrope', -apple-system, sans-serif;
+  --serif: 'DM Serif Display', Georgia, serif;
+}
+
+body { font-family: var(--font); color: var(--black); background: #fff; -webkit-font-smoothing: antialiased; }
+
+/* Section divider */
+.proposal-divider {
+  padding: 24px 0; text-align: center; background: var(--black); color: #fff;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROPOSAL 1: HERO -- Editorial, not SaaS
+   No gradient text. No floating badges. No decorative animations.
+   Weight-driven hierarchy. Asymmetric layout.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero-new {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 120px 0 80px; background: #fff;
+}
+.hero-new .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.hero-new h1 {
+  font-size: clamp(40px, 6vw, 80px); font-weight: 800; letter-spacing: -0.04em;
+  line-height: 0.95; color: var(--black); max-width: 700px;
+}
+.hero-new h1 .accent {
+  color: var(--blue); font-weight: 800;
+  /* No gradient. Just color. */
+}
+.hero-new .hero-desc {
+  font-size: 18px; font-weight: 300; color: var(--body); line-height: 1.7;
+  max-width: 520px; margin-top: 28px;
+}
+.hero-new .hero-actions {
+  display: flex; gap: 12px; margin-top: 36px;
+}
+.hero-new .btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; background: var(--black); color: #fff;
+  border-radius: 8px; font-size: 14px; font-weight: 600;
+  text-decoration: none; transition: background 0.2s;
+  border: none; cursor: pointer;
+}
+.hero-new .btn-primary:hover { background: var(--blue); }
+.hero-new .btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 32px; background: transparent; color: var(--black);
+  border: 1.5px solid var(--stone); border-radius: 8px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: border-color 0.2s;
+}
+.hero-new .btn-secondary:hover { border-color: var(--black); }
+
+/* Stats strip -- horizontal, not grid */
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 56px; padding-top: 32px;
+  border-top: 1px solid var(--stone);
+}
+.hero-stat-num { font-size: 32px; font-weight: 800; color: var(--black); }
+.hero-stat-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROPOSAL 2: SERVICES -- Asymmetric, editorial
+   Not 3 centered cards. A flowing editorial layout.
+   Each service gets a different visual treatment.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.services-new { padding: 100px 0; background: #fff; }
+.services-new .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.services-new .section-header {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px;
+}
+.services-new .section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 12px;
+}
+.services-new h2 {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+}
+.services-new .section-desc {
+  font-size: 16px; color: var(--body); line-height: 1.8; font-weight: 300;
+  align-self: end;
+}
+
+/* Service items -- alternating layout, not uniform cards */
+.service-item {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  padding: 60px 0; border-top: 1px solid var(--stone);
+}
+.service-item:nth-child(even) { direction: rtl; }
+.service-item:nth-child(even) > * { direction: ltr; }
+
+.service-num {
+  font-size: 72px; font-weight: 200; color: var(--stone); line-height: 1;
+  font-family: var(--serif);
+}
+.service-title {
+  font-size: 24px; font-weight: 700; margin: 12px 0 8px; letter-spacing: -0.02em;
+}
+.service-desc {
+  font-size: 15px; color: var(--body); line-height: 1.7; font-weight: 300;
+}
+.service-visual {
+  background: var(--off); border-radius: 16px; aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 13px; font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROPOSAL 3: TEAM -- Confident, not cute
+   No bouncing 50x badge. No ring-4 around photo.
+   Founder front-and-center with editorial treatment.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.team-new { padding: 100px 0; background: var(--off); }
+.team-new .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.team-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+
+.founder-card {
+  position: sticky; top: 120px;
+}
+.founder-photo {
+  width: 100%; aspect-ratio: 3/4; background: var(--stone); border-radius: 12px;
+  /* No ring. No shadow. Just the image. */
+  overflow: hidden;
+}
+.founder-name {
+  font-size: 22px; font-weight: 800; margin-top: 20px; letter-spacing: -0.02em;
+}
+.founder-role {
+  font-size: 13px; color: var(--muted); font-weight: 500; margin-top: 2px;
+}
+.founder-quote {
+  font-family: var(--serif); font-style: italic; font-size: 18px;
+  color: var(--body); line-height: 1.6; margin-top: 20px;
+  padding-left: 20px; border-left: 3px solid var(--blue);
+}
+
+.team-content h2 {
+  font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+  margin-bottom: 16px;
+}
+.team-content .team-desc {
+  font-size: 16px; color: var(--body); line-height: 1.8; font-weight: 300;
+  margin-bottom: 40px;
+}
+
+.team-pillars { display: flex; flex-direction: column; gap: 16px; }
+.team-pillar {
+  padding: 24px; background: #fff; border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: border-color 0.2s;
+}
+.team-pillar:hover { border-color: var(--blue); }
+.team-pillar h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.team-pillar p { font-size: 13px; color: var(--body); line-height: 1.6; font-weight: 300; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROPOSAL 4: PROCESS -- Clean timeline, no fake progress bar
+   ═══════════════════════════════════════════════════════════════════ */
+
+.process-new { padding: 100px 0; background: #fff; }
+.process-new .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.process-header { margin-bottom: 60px; max-width: 600px; }
+.process-header h2 {
+  font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+}
+.process-header p { font-size: 16px; color: var(--body); line-height: 1.7; font-weight: 300; margin-top: 12px; }
+
+.process-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 3px solid var(--black);
+}
+.process-step { padding: 32px 24px 32px 0; }
+.process-step-num {
+  font-size: 48px; font-weight: 200; color: var(--stone); font-family: var(--serif);
+  line-height: 1; margin-bottom: 16px;
+}
+.process-step h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.process-step p { font-size: 13px; color: var(--body); line-height: 1.6; font-weight: 300; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROPOSAL 5: CONTACT -- Direct, no fluff
+   ═══════════════════════════════════════════════════════════════════ */
+
+.contact-new { padding: 100px 0; background: var(--black); color: #fff; }
+.contact-new .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.contact-new h2 {
+  font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+}
+.contact-new p { font-size: 16px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; margin-top: 16px; }
+.contact-new .contact-email {
+  display: inline-block; margin-top: 28px; font-size: 18px; font-weight: 600;
+  color: #fff; text-decoration: none; border-bottom: 2px solid var(--blue);
+  padding-bottom: 2px; transition: border-color 0.2s;
+}
+.contact-new .contact-email:hover { border-color: #fff; }
+.contact-new .contact-meta {
+  font-size: 13px; color: rgba(255,255,255,0.3); margin-top: 24px; line-height: 1.8;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 14px 16px; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
+  color: #fff; font-family: var(--font); font-size: 14px;
+  outline: none; transition: border-color 0.2s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: var(--blue);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+.contact-form button {
+  align-self: flex-start; padding: 14px 32px;
+  background: var(--blue); color: #fff; border: none; border-radius: 8px;
+  font-family: var(--font); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background 0.2s;
+}
+.contact-form button:hover { background: var(--blue-dark); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .services-new .section-header { grid-template-columns: 1fr; gap: 16px; }
+  .service-item { grid-template-columns: 1fr; gap: 24px; }
+  .service-item:nth-child(even) { direction: ltr; }
+  .team-grid { grid-template-columns: 1fr; gap: 40px; }
+  .founder-card { position: static; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HERO PROPOSAL
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="proposal-divider">Proposal: Hero Section</div>
+
+<section class="hero-new">
+  <div class="container">
+    <h1>We don't advise on AI.<br><span class="accent">We build it and ship it.</span></h1>
+    <p class="hero-desc">Production AI agents for Canadian organizations. Not slide decks. Not proofs of concept. Working systems that run your operations.</p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book a 30-min diagnostic &rarr;</a>
+      <a href="#process" class="btn-secondary">How we work</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">Senior builders</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">&lt;30d</div>
+        <div class="hero-stat-label">To production</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">EN/FR</div>
+        <div class="hero-stat-label">Natively bilingual</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">QC</div>
+        <div class="hero-stat-label">Quebec City</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SERVICES PROPOSAL
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="proposal-divider">Proposal: Services Section</div>
+
+<section class="services-new">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="section-label">What we do</div>
+        <h2>From strategy to production. No handoffs.</h2>
+      </div>
+      <p class="section-desc">We don't split "thinking" from "doing." Every engagement moves from understanding your operations to shipping working agents.</p>
+    </div>
+
+    <div class="service-item">
+      <div>
+        <div class="service-num">01</div>
+        <div class="service-title">Agentic Strategy & Blueprint</div>
+        <p class="service-desc">We map your operations, identify where AI agents create the most value, and deliver a concrete plan. You leave with a prioritized list of agent opportunities and a build-ready architecture -- in weeks, not months.</p>
+      </div>
+      <div class="service-visual">[Strategy visual]</div>
+    </div>
+
+    <div class="service-item">
+      <div>
+        <div class="service-num">02</div>
+        <div class="service-title">Custom Agent Development</div>
+        <p class="service-desc">We build autonomous agents tailored to your workflows. Not off-the-shelf chatbots. Real agents that handle real work -- on your data, in your systems. Each ships with monitoring, governance, and a handoff your team can operate.</p>
+      </div>
+      <div class="service-visual">[Development visual]</div>
+    </div>
+
+    <div class="service-item">
+      <div>
+        <div class="service-num">03</div>
+        <div class="service-title">AI-Enabled Operations</div>
+        <p class="service-desc">We don't just build and leave. We embed your team into the process, transfer knowledge, and set you up to evolve the system independently. The agents improve through our Soul Engine -- they get better the more they work.</p>
+      </div>
+      <div class="service-visual">[Operations visual]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     TEAM PROPOSAL
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="proposal-divider">Proposal: Team Section</div>
+
+<section class="team-new">
+  <div class="container">
+    <div class="team-grid">
+      <div class="founder-card">
+        <div class="founder-photo" style="background: linear-gradient(135deg, var(--stone), #ccc);"></div>
+        <div class="founder-name">Alex Veilleux</div>
+        <div class="founder-role">Founder & Principal Builder</div>
+        <blockquote class="founder-quote">"Most AI projects fail because they're architecture problems disguised as technology problems. We solve architecture first."</blockquote>
+      </div>
+      <div class="team-content">
+        <h2>A small crew.<br>Multiplied by AI.</h2>
+        <p class="team-desc">We're not a 200-person consultancy. We're a tight team of senior builders, each amplified by AI agents through our automated development pipeline.</p>
+
+        <div class="team-pillars">
+          <div class="team-pillar">
+            <h4>AI Research Agents</h4>
+            <p>Every team member has AI agents that continuously scan, analyze, and brief on the latest tools, papers, and techniques. We're never behind.</p>
+          </div>
+          <div class="team-pillar">
+            <h4>Automated Pipeline</h4>
+            <p>Code review, testing, documentation -- all automated. What takes a traditional team a week takes us a day.</p>
+          </div>
+          <div class="team-pillar">
+            <h4>Embedded Model</h4>
+            <p>We join your channels, attend your standups, and speak your language. One team, one context. Our agents work alongside us 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PROCESS PROPOSAL
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="proposal-divider">Proposal: Process Section</div>
+
+<section class="process-new">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-label" style="color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px;">How we work</div>
+      <h2>Your context. Our expertise. One continuous build.</h2>
+      <p>Not phases with gates. A continuous flow from understanding your operations to shipping production agents.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <h4>Extract</h4>
+        <p>We dive into your operations, systems, and data. No surface-level workshops.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <h4>Architect</h4>
+        <p>We match your context to the right agent architecture. Every plan is custom.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <h4>Build & Ship</h4>
+        <p>Continuous delivery. Your team is embedded. Production in days, not quarters.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <h4>Evolve</h4>
+        <p>The plan isn't static. As your organization grows, the agents evolve with it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CONTACT PROPOSAL
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="proposal-divider">Proposal: Contact Section</div>
+
+<section class="contact-new">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <h2>Tell us what you're trying to automate.</h2>
+        <p>We'll tell you honestly if agents are the right answer. No pitch. No proposal. Just a straight conversation about what's possible.</p>
+        <a href="mailto:alex@agentislab.ai" class="contact-email">alex@agentislab.ai</a>
+        <div class="contact-meta">
+          Quebec City, Canada<br>
+          English & French natively<br>
+          Canadian-owned. Data sovereignty.
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="text" placeholder="Company">
+        <textarea rows="4" placeholder="What are you trying to automate?"></textarea>
+        <button type="button">Send &rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
